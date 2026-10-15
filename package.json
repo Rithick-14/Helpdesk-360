@@ -1,0 +1,18 @@
+{
+  "name": "helpdesk-360",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": ["frontend", "backend"],
+  "scripts": {
+    "setup": "npx --yes --package=node@20 --call \"node --version && npm install\"",
+    "dev": "npx --yes --package=node@20 --call \"concurrently -k -n api,web -c blue,green \\\"npm run dev -w backend\\\" \\\"npm run dev -w frontend\\\"\"",
+    "build": "npm run build -w frontend",
+    "start": "npx --yes --package=node@20 --call \"npm run start -w backend\"",
+    "test": "npx --yes --package=node@20 --call \"npm run test -w backend\"",
+    "seed": "npx --yes --package=node@20 --call \"npm run seed -w backend\"",
+    "seed:large": "npx --yes --package=node@20 --call \"npm run seed:large -w backend\"",
+    "seed:reset": "npx --yes --package=node@20 --call \"npm run seed:reset -w backend\"",
+    "verify": "npx --yes --package=node@20 --call \"node scripts/verify.mjs\""
+  },
+  "devDependencies": {"concurrently": "^9.1.2"}
+}
